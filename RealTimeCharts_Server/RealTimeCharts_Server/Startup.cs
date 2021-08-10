@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using RealTimeCharts_Server.HubConfigs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,8 @@ namespace RealTimeCharts_Server
                 .AllowAnyHeader()
                 .AllowCredentials());
             });
+
+            services.AddSignalR();
             services.AddControllers();
         }
 
@@ -56,6 +59,7 @@ namespace RealTimeCharts_Server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChartHub>("/chart");
             });
         }
     }
