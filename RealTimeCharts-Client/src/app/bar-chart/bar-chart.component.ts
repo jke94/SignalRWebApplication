@@ -18,7 +18,7 @@ export class BarChartComponent implements OnInit {
 
   constructor(public signalRService: SignalRService, private http: HttpClient) {
     
-    this.chartLabels  = ['Real time data for the chart'];
+    this.chartLabels  = ['Metrics from the Web Api.'];
     this.barChartType  = 'bar'
     this.chartLegend = true;
     this.colors  = 
@@ -26,7 +26,9 @@ export class BarChartComponent implements OnInit {
       { backgroundColor: '#5491DA' }, 
       { backgroundColor: '#E74C3C' }, 
       { backgroundColor: '#82E0AA' }, 
-      { backgroundColor: '#E5E7E9' },
+      { backgroundColor: '#A5C7E9' },
+      { backgroundColor: '#C5E7E9' },
+      { backgroundColor: '#E1E719' },
       { backgroundColor: '#15E7E9' }
 
     ];
