@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SignalRService } from '../services/signal-r.service'
 import { HttpClient } from '@angular/common/http';
 import { ChartType} from 'chart.js';
+import { ChartModel } from '../interfaces/chartmodel.model';
 
 @Component({
   selector: 'app-bar-chart',
@@ -15,6 +16,9 @@ export class BarChartComponent implements OnInit {
   public chartLegend: boolean;
   public colors: any[];
   public chartOptions: any;
+
+  public valores!:ChartModel[];
+  public errorHTTPGet!:string;
 
   constructor(public signalRService: SignalRService, private http: HttpClient) {
     
@@ -53,8 +57,16 @@ export class BarChartComponent implements OnInit {
 
   private startHttpRequest = () => {
     this.http.get('https://localhost:5001/api/chart')
-      .subscribe(res => {
-        console.log(res);
-      })
+      .subscribe(
+        (res) => 
+        {
+        this.valores = res as ChartModel[];
+          console.log(res);
+        },
+        (res) => 
+        {
+          this.errorHTTPGet = "Imposible obtener los datos!"
+          console.log("Error HTTP Get!", res)
+        })
   }
 }

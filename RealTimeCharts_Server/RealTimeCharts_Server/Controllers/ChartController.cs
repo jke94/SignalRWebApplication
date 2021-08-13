@@ -23,7 +23,7 @@
             _hub = hub;
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<IEnumerable<ChartModel>>> Get()
         {
             var r = new Random();
             var data = new List<ChartModel>()
@@ -49,7 +49,7 @@
             data.ForEach(element => _logger.LogInformation(
                 string.Concat(element.Label, ": Value = ", element.Data[0].ToString())));
             
-            return Ok(new { Message = "Request GET Completed", data });
+            return result;
         }
 
         [HttpPost]
