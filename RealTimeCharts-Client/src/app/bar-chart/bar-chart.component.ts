@@ -65,7 +65,7 @@ export class BarChartComponent implements OnInit {
         console.log(res);
       },
       (res) => {
-        this.errorHTTPGet = "Imposible obtener los datos!"
+        this.errorHTTPGet = "Imposible obtener los datos para el componente bar-char!"
         console.log("Error HTTP Get!", res)
       })
   }

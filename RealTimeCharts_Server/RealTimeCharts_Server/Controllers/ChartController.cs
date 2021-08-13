@@ -55,7 +55,7 @@
         [HttpPost]
         public async Task<IActionResult> AddMetric(List<ChartModel> chartModelList)
         {
-            await _hub.Clients.All.SendAsync("transferchartdata", chartModelList);
+            await _hub.Clients.All.SendAsync("transferchartdataChart", chartModelList);
 
             chartModelList.ForEach(element => _logger.LogInformation(
                 string.Concat(element.Label, ": Value = ", element.Data[0].ToString())));
