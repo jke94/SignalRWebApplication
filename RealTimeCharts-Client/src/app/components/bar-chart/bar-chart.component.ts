@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { ChartModel } from '../interfaces/chartmodel.model';
+import { ChartModel } from '../../interfaces/chartmodel.model';
 
-import { SignalRService } from '../services/signal-r.service'
-import { ChartService } from '../services/chart/chart-service.service';
+import { SignalRService } from '../../services/signal-r.service'
+import { ChartService } from '../../services/chart/chart-service.service';
 
 @Component({
   selector: 'app-bar-chart',

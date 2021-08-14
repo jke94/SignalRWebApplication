@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ChartType, ChartDataSets } from 'chart.js';
-import { SignalRService } from '../services/signal-r.service'
-import { BubbleArea } from '../interfaces/bubbleArea.model';
-import { BubbleareaService } from '../services/bubbleArea/bubblearea-service.service';
+import { SignalRService } from '../../services/signal-r.service'
+import { BubbleArea } from '../../interfaces/bubbleArea.model';
+import { BubbleareaService } from '../../services/bubbleArea/bubblearea-service.service';
 
 @Component({
   selector: 'app-bubble-area-chart',
