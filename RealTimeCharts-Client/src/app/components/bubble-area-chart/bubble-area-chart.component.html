@@ -1,4 +1,4 @@
-<div *ngIf="!signalRService.dataBubbleAreaChart; else elseBlock">
+<!-- <div *ngIf="!signalRService.dataBubbleAreaChart; else elseBlock"> -->
     <li *ngFor="let item of bubbleChartData">
       <div>
          {{item.label}} - {{item.data}} - {{item.backgroundColor}}
@@ -13,24 +13,24 @@
         [chartType]="bubbleChartType">
     </canvas>
   </div>
-</div>
+<!-- </div> -->
   
-  <ng-template #elseBlock>
+  <!-- <ng-template #elseBlock>
     <li *ngFor="let item of signalRService.dataBubbleAreaChart;">
       <div>
-        <!-- {{item.data.CoordinateX}} - {{item.CoordinateY}} - {{item.Radiux}} -->
+        {{item.label}} - {{item.data}} - {{item.backgroundColor}}
       </div>
     </li>
     <div style="display: block" *ngIf='signalRService.dataBubbleAreaChart'>
-        <!-- <canvas baseChart 
+        <canvas baseChart 
         [datasets]="signalRService.dataBubbleAreaChart" 
         [labels]="chartLabels"
         [options]="bubbleChartOptions" 
         [legend]="bubbleChartLegend"
         [chartType]="bubbleChartType">
-    </canvas> -->
+    </canvas>
     </div>
   </ng-template>
   <div *ngIf="errorHTTPGet">
     {{errorHTTPGet}}
-  </div>
+  </div> -->

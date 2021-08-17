@@ -27,16 +27,45 @@
         {
             var r = new Random();
             var data = new List<BubbleAreaCharModel>()
-                {
-                    new BubbleAreaCharModel { CoordinateX = r.Next(1, 1000), CoordinateY = r.Next(1, 1000), Radiux = r.Next(10, 50) },
-                    new BubbleAreaCharModel { CoordinateX = r.Next(1, 1000), CoordinateY = r.Next(1, 1000), Radiux = r.Next(10, 50) },
-                    new BubbleAreaCharModel { CoordinateX = r.Next(1, 1000), CoordinateY = r.Next(1, 1000), Radiux = r.Next(10, 50) },
-                    new BubbleAreaCharModel { CoordinateX = r.Next(1, 1000), CoordinateY = r.Next(1, 1000), Radiux = r.Next(10, 50) },
-                    new BubbleAreaCharModel { CoordinateX = r.Next(1, 1000), CoordinateY = r.Next(1, 1000), Radiux = r.Next(10, 50) },
-                    new BubbleAreaCharModel { CoordinateX = r.Next(1, 1000), CoordinateY = r.Next(1, 1000), Radiux = r.Next(10, 50) }
-                };
-            
-
+            {
+                new BubbleAreaCharModel 
+                { 
+                    Label = "Data 1", 
+                    BackgroundColor = "#5491DA",
+                    Data = new List<int>()
+                    {
+                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
+                    }
+                }
+                ,
+                new BubbleAreaCharModel 
+                { 
+                    Label = "Data 2", 
+                    BackgroundColor = "#E74C3C",
+                    Data = new List<int>()
+                    {
+                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
+                    }
+                },
+                new BubbleAreaCharModel 
+                { 
+                    Label = "Data 3", 
+                    BackgroundColor = "#82E0AA",
+                    Data = new List<int>()
+                    {
+                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
+                    }
+                },
+                new BubbleAreaCharModel 
+                { 
+                    Label = "Data 4", 
+                    BackgroundColor = "#A5C7E9",
+                    Data = new List<int>()
+                    {
+                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
+                    }
+                }                
+            };
 
             Task<List<BubbleAreaCharModel>> myTask = Task.Run(async () =>
             {
@@ -47,8 +76,8 @@
 
             var result = await Task.FromResult(myTask.Result);
 
-            data.ForEach(element => _logger.LogInformation(
-                string.Concat("X: ", element.CoordinateX, ", Y: ", element.CoordinateY, ", Radiux: ", element.Radiux)));
+            // data.ForEach(element => _logger.LogInformation(
+            //     string.Concat("X: ", element., ", Y: ", element.CoordinateY, ", Radiux: ", element.Radiux)));
 
 
             return result;
@@ -59,8 +88,8 @@
         {
             await _hub.Clients.All.SendAsync("transferchartdataBubbleAreaChart", chartModelList);
 
-            chartModelList.ForEach(element => _logger.LogInformation(
-            string.Concat("X: ", element.CoordinateX, ", Y: ", element.CoordinateY, ", Radiux: ", element.Radiux)));
+            // chartModelList.ForEach(element => _logger.LogInformation(
+            // string.Concat("X: ", element.CoordinateX, ", Y: ", element.CoordinateY, ", Radiux: ", element.Radiux)));
             return Ok(new { Message = "Request Completed" });
         }
     }
