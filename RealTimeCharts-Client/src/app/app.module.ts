@@ -6,6 +6,7 @@ import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { BubbleAreaChartComponent } from './components/bubble-area-chart/bubble-area-chart.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BubbleAreaChartComponent } from './components/bubble-area-chart/bubble-
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    ChartsModule    
+    ChartsModule,
+    NgbModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 export interface ChartModel {
     data: [],
-    label: string
+    label: string,
+    backgroundColor:string
 }

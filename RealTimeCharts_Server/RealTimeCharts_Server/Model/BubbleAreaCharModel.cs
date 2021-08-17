@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 namespace RealTimeCharts_Server.Model
 {
     public class BubbleAreaCharModel
-    {
+    {      
         public List<int> Data { get; set;}
         public string Label {get; set;}
-        public string BackgroundColor {get;set;}
+        public string BackgroundColor { get; set; }
     }
 
     public class PointBubbleChartModel

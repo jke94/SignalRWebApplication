@@ -30,42 +30,36 @@
             {
                 new BubbleAreaCharModel 
                 { 
-                    Label = "Data 1", 
-                    BackgroundColor = "#5491DA",
-                    Data = new List<int>()
-                    {
-                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
-                    }
+                    Data = new List<int>(){ r.Next(1, 100), r.Next(1, 100), r.Next(1, 100)},
+                    Label = "Data A",
+                    BackgroundColor= string.Format("#{0:X6}", r.Next(0x1000000))
+                },
+                new BubbleAreaCharModel
+                {
+                    Data = new List<int>(){ r.Next(1, 100), r.Next(1, 100), r.Next(1, 100)},
+                    Label = "Data B",
+                    BackgroundColor= string.Format("#{0:X6}", r.Next(0x1000000))
+                },
+                new BubbleAreaCharModel
+                {
+                    Data = new List<int>(){ r.Next(1, 100), r.Next(1, 100), r.Next(1, 100)},
+                    Label = "Data C",
+                    BackgroundColor=string.Format("#{0:X6}", r.Next(0x1000000))
+                },
+                new BubbleAreaCharModel
+                {
+                    Data = new List<int>(){ r.Next(1, 100), r.Next(1, 100), r.Next(1, 100)},
+                    Label = "Data D",
+                    BackgroundColor=string.Format("#{0:X6}", r.Next(0x1000000))
+                },
+                new BubbleAreaCharModel
+                {
+                    Data = new List<int>(){ r.Next(1, 100), r.Next(1, 100), r.Next(1, 100)},
+                    Label = "Data E",
+                    BackgroundColor=string.Format("#{0:X6}", r.Next(0x1000000))
                 }
-                ,
-                new BubbleAreaCharModel 
-                { 
-                    Label = "Data 2", 
-                    BackgroundColor = "#E74C3C",
-                    Data = new List<int>()
-                    {
-                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
-                    }
-                },
-                new BubbleAreaCharModel 
-                { 
-                    Label = "Data 3", 
-                    BackgroundColor = "#82E0AA",
-                    Data = new List<int>()
-                    {
-                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
-                    }
-                },
-                new BubbleAreaCharModel 
-                { 
-                    Label = "Data 4", 
-                    BackgroundColor = "#A5C7E9",
-                    Data = new List<int>()
-                    {
-                        r.Next(1, 1000), r.Next(1, 1000), r.Next(10, 50)
-                    }
-                }                
-            };
+            };             
+            
 
             Task<List<BubbleAreaCharModel>> myTask = Task.Run(async () =>
             {

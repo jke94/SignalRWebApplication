@@ -1,36 +1,45 @@
-<!-- <div *ngIf="!signalRService.dataBubbleAreaChart; else elseBlock"> -->
-    <li *ngFor="let item of bubbleChartData">
-      <div>
-         {{item.label}} - {{item.data}} - {{item.backgroundColor}}
-      </div>
-    </li>
-    <div style="display: block" *ngIf='bubbleChartData'>
-        <canvas baseChart 
-        [datasets]="bubbleChartData"
-        [labels]="chartLabels"
-        [options]="bubbleChartOptions" 
-        [legend]="bubbleChartLegend"
-        [chartType]="bubbleChartType">
+<div *ngIf="!signalRService.dataBubbleAreaChart; else elseBlock">
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Label Name</th>
+          <th scope="col">Value</th>
+          <th scope="col">Color (Hex)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of valores; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ item.label }} </td>
+          <td>{{ item.data }}</td>
+          <td>{{ item.backgroundColor}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="display: block" *ngIf='valores'>
+    <canvas baseChart [datasets]="valores" [labels]="chartLabels" [options]="bubbleChartOptions"
+      [legend]="bubbleChartLegend" [chartType]="bubbleChartType">
     </canvas>
   </div>
-<!-- </div> -->
-  
-  <!-- <ng-template #elseBlock>
-    <li *ngFor="let item of signalRService.dataBubbleAreaChart;">
-      <div>
-        {{item.label}} - {{item.data}} - {{item.backgroundColor}}
-      </div>
-    </li>
-    <div style="display: block" *ngIf='signalRService.dataBubbleAreaChart'>
-        <canvas baseChart 
-        [datasets]="signalRService.dataBubbleAreaChart" 
-        [labels]="chartLabels"
-        [options]="bubbleChartOptions" 
-        [legend]="bubbleChartLegend"
-        [chartType]="bubbleChartType">
-    </canvas>
+</div>
+
+<ng-template #elseBlock>
+  <li *ngFor="let item of signalRService.dataBubbleAreaChart;">
+    <div>
+      {{item.label}} - {{item.data}} - {{item.backgroundColor}}
     </div>
-  </ng-template>
-  <div *ngIf="errorHTTPGet">
-    {{errorHTTPGet}}
-  </div> -->
+  </li>
+  <div style="display: block" *ngIf='signalRService.dataBubbleAreaChart'>
+    <canvas baseChart [datasets]="signalRService.dataBubbleAreaChart" [labels]="chartLabels"
+      [options]="bubbleChartOptions" [legend]="bubbleChartLegend" [chartType]="bubbleChartType">
+    </canvas>
+  </div>
+</ng-template>
+<div *ngIf="errorHTTPGet">
+  <ngb-alert [dismissible]="false">
+    <strong>Warning!</strong> {{errorHTTPGet}}
+  </ngb-alert>
+</div>

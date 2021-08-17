@@ -1,5 +1,5 @@
 export interface BubbleArea {
     label: string,
-    backgroundColor:string,
-    data:[]
+    data:[],
+    backgroundColor:string
 }

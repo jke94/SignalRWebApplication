@@ -16,7 +16,7 @@ export class BubbleAreaChartComponent {
   public bubbleChartType!: ChartType;
   public bubbleChartLegend!: boolean;
 
-  public bubbleChartData!: ChartDataSets [];
+  public bubbleChartData!: BubbleArea [];
 
   public valores!: BubbleArea[];
   public errorHTTPGet!: string;
@@ -40,7 +40,7 @@ export class BubbleAreaChartComponent {
           {
             ticks: {
               min: 0,
-              max: 250000,
+              max: 250,
             }
           }
         ]
@@ -71,13 +71,12 @@ export class BubbleAreaChartComponent {
     this.bubbleAreaService.getData().subscribe(
       (res) => {
         this.valores = res as BubbleArea[];
-        this.bubbleChartData = res as ChartDataSets[];
+        this.bubbleChartData = res as BubbleArea[];
         console.log("BubbleArea Data: ",this.valores);
       },
       (res) => {
-        this.errorHTTPGet = "Imposible obtener los datos para el componente bar-char!"
+        this.errorHTTPGet = "Imposible obtener los datos para el componente bubble-area!"
         console.log("Error HTTP Get!", res)
       })
   }
-
 }
