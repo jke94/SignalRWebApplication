@@ -1,5 +1,5 @@
-export interface ChartModel {
-    data: [],
+export interface BubbleArea {
     label: string,
+    data:[],
     backgroundColor:string
 }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
-import { ChartModel } from '../interfaces/chartmodel.model';
-
-import { SignalRService } from '../services/signal-r.service'
-import { ChartService } from '../services/chart/chart-service.service';
+import { ChartModel } from '../../interfaces/chartmodel.model';
+import { SignalRService } from '../../services/signal-r.service'
+import { ChartService } from '../../services/chart/chart-service.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -65,7 +64,7 @@ export class BarChartComponent implements OnInit {
         console.log(res);
       },
       (res) => {
-        this.errorHTTPGet = "Imposible obtener los datos!"
+        this.errorHTTPGet = "Imposible obtener los datos para el componente bar-char!"
         console.log("Error HTTP Get!", res)
       })
   }

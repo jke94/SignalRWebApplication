@@ -10,6 +10,7 @@ namespace ConsoleApp
     {
         public List<int> Data { get; set; }
         public string Label { get; set; }
+        public string BackgroundColor { get; set; }
     }
     public class JsonContent : StringContent
     {
@@ -30,13 +31,12 @@ namespace ConsoleApp
                 var r = new Random();
                 var data = new List<ChartModel>()
                 {
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data1" },
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data2" },
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data3" },
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data4" },
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data5" },
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data6" },
-                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data7" }
+                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data1", BackgroundColor = string.Format("#{0:X6}", r.Next(0x1000000)) },
+                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data2", BackgroundColor = string.Format("#{0:X6}", r.Next(0x1000000)) },
+                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data3", BackgroundColor = string.Format("#{0:X6}", r.Next(0x1000000)) },
+                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data4", BackgroundColor = string.Format("#{0:X6}", r.Next(0x1000000)) },
+                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data5", BackgroundColor = string.Format("#{0:X6}", r.Next(0x1000000)) },
+                    new ChartModel { Data = new List<int> { r.Next(1, 100) }, Label = "Data6", BackgroundColor = string.Format("#{0:X6}", r.Next(0x1000000)) },
                 };
 
                 // HTTP Post
