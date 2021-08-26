@@ -61,6 +61,7 @@ namespace RealTimeCharts_Server
                 endpoints.MapControllers();
                 endpoints.MapHub<ChartHub>("/chart");
                 endpoints.MapHub<ChartHub>("/bubbleArea");
+                endpoints.MapHub<ChartHub>("/doughnut");
             });
         }
     }

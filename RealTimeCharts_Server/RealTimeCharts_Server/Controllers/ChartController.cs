@@ -15,13 +15,13 @@
     {
         private IHubContext<ChartHub> _hub;
         private readonly ILogger _logger;
-        public ChartController( IHubContext<ChartHub> hub, 
-                                ILogger<ChartController> logger
-            )
+
+        public ChartController( IHubContext<ChartHub> hub, ILogger<ChartController> logger)
         {
             _logger = logger;
             _hub = hub;
         }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ChartModel>>> Get()
         {
